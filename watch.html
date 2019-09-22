@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <p id="clock" style="font-family: 'Merienda', cursive;font-size: 75px"></p>
+    <p id="date" style="font-family: 'Merienda', cursive;font-size: 40px;margin-top: -86px;margin-left: 55px"></p>
+
+    <script>
+        dot=0;
+        function timer()
+        {
+            cdate=new Date();
+            hours=cdate.getHours();
+            min=cdate.getMinutes();
+            ddate=cdate.getDate();
+            mon=cdate.getMonth();
+            year=cdate.getFullYear();
+          //  year=cdate.getFullYear();
+            
+            ampm="";
+            time=document.getElementById("clock");
+            dates=document.getElementById("date");
+             
+             if(hours<10){
+                 hours="0"+hours;
+                 ampm="AM";
+             }
+             else if (hours>=10 && hours<13) {
+                 ampm="AM";     
+             }
+             else if(hours>12 && hours<22){
+                 hours="0"+(hours-12);
+                 ampm="PM";
+             }
+             else if(hours>=22){
+                 hours=(hours-12);
+                 ampm="PM"
+             }
+
+             if(min<10){
+                 min="0"+min;
+             }
+
+             switch (mon) {
+                 case 1:
+                 mon="jun";  
+                     break;
+                     case 2:
+                 mon="feb";  
+                     break;
+             
+                     case 3:
+                 mon="Mar";  
+                     break;
+             
+                     case 4:
+                 mon="APR";  
+                     break;
+             
+                     case 5:
+                 mon="May";  
+                     break;
+             
+                     case 6:
+                 mon="jon";  
+                     break;
+             
+                     case 7:
+                 mon="julay";  
+                     break;
+             
+                     case 8:
+                 mon="Oga";  
+                     break;
+             
+                     case 9:
+                 mon="Seb";  
+                     break;
+             
+                     case 10:
+                 mon="Oct";  
+                     break;
+             
+                     case 11:
+                 mon="Nov";  
+                     break;
+             
+                     case 12:
+                 mon="Dec";  
+                     break;
+             }
+            
+        }
+
+
+        timer();
+        time.innerHTML=hours+"<span>:</span>"+min+ampm;
+        dates.innerHTML=ddate+mon+year;
+
+        setInterval(function(){
+            timer();
+            if(dot==0){
+                dot=1;
+                time.innerHTML=hours+"<span>:</span>"+min+ampm;
+            }
+            else{
+                dot=0;
+                time.innerHTML=hours+"<span style='visibility:hidden'>:</span>"+min+ampm;
+            }
+            
+        }, 1000);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </script>
+    
+</body>
+</html>
